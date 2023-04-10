@@ -12,24 +12,42 @@ import Typography from "@mui/material/Typography";
 import { NavLink } from "react-router-dom";
 import { Link } from "@mui/material";
 import { useForm } from "react-hook-form";
-
+import { resetHandle } from "../../RTK/slice/Slice";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 const ForgotPaswrd = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const dispatch = useDispatch();
+
   const onSubmit = (data) => {
+    if (data.Confirmpassword === data.password) {
+      dispatch(
+        resetHandle({
+          email: data.email,
+          password: data.password,
+        })
+      );
+    } else {
+      toast.error("password and confirm password must be same", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+
     console.log(data);
   };
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //   });
-  // };
+
   return (
     <div>
       <Grid mt={6} mb={6} container component="main" sx={{ height: "100vh" }}>

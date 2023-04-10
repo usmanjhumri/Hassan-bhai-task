@@ -1,14 +1,18 @@
-const User = require("../model/users");
-const mongoose = require("mongoose");
-const express = require("express");
+import { User } from "./model/users.js";
+import { connect } from "mongoose";
+import express, { json, urlencoded } from "express";
 const app = express();
-const cors = require("cors");
+import cors from "cors";
+import { join, resolve } from "path";
 
 app.use(cors());
-app.use(express.json({ limit: "200mb" }));
-app.use(express.static("./build"));
-app.use(express.static("./uploads"));
-app.use(express.urlencoded({ limit: "200md", extended: true }));
+app.use(json({ limit: "200mb" }));
+// app.use(express.static("./build"));
+
+app.use(express.static(join(resolve(), "server/dist")));
+// app.use(express.static("./dist"));
+app.use(urlencoded({ limit: "200md", extended: true }));
+
 // Model Import for chat and blogs post etc
 
 //--------------.ENV CONFIG------------------//
@@ -18,8 +22,7 @@ const MONGO_URI =
 
 //------------DB CONNECTION---------------//
 
-mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("DB connected");
   })
@@ -33,11 +36,6 @@ mongoose
 //--------- NOW MAKING API ROUTES-----------------------//
 
 //-----------Routes-----------------//
-
-app.get("/", async (req, res) => {
-  const user = await User.find({});
-  res.send(user);
-});
 
 //--------------------SIGN UP ROUTE--------------------//
 app.post("/singup", async (req, res) => {
@@ -97,7 +95,7 @@ app.post("/reset", async (req, res) => {
   try {
     const user = await User.find({ email: email });
     if (user) {
-      await User.updateOne({ email: email }, { password: password });
+      await updateOne({ email: email }, { password: password });
       res.send({ success: true, message: "password successfully reset" });
     } else {
       res.send({ success: false, message: "email is not registered" });
@@ -106,8 +104,20 @@ app.post("/reset", async (req, res) => {
     res.send({ success: false, message: error.message });
   }
 });
-
 const PORT = process.env.PORT || 8000;
+
+// app.get("/*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "./dist/index.html"), function (err) {
+//     if (err) {
+//       console.log(err);
+//       res.status(500).send(err);
+//     }
+//   });
+// });
+
+app.get("/", (req, res) => {
+  res.status(200).sendFile(join(resolve(), "server/dist/index.html"));
+});
 app.listen(PORT, () => {
   console.log(`server is chling on port ${PORT}`);
 });
