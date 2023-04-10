@@ -26,12 +26,6 @@ mongoose
   .catch((error) => {
     console.log("DB not connected", error);
   });
-// mongoose.connect(
-//   MONGO_URI,
-//   { useNewUrlParser: true, useUniFiedTopolgy: true },
-//   (err, connection) => {
-//     console.log(err || connection);
-//   }
 
 // useNewUrlParser option enables the use of the new URL parser, //
 // useUnifiedTopology enables the use of the new Server Discovery and Monitoring engine, //
