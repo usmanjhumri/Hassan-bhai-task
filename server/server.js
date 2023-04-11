@@ -95,7 +95,12 @@ app.post("/reset", async (req, res) => {
   try {
     const user = await User.find({ email: email });
     if (user) {
-      await updateOne({ email: email }, { password: password });
+      await updateOne(
+        { email: email },
+        { password: password },
+        { confirmpassword: confirmpassword }
+      );
+      console.log(password, confirmpassword);
       res.send({ success: true, message: "password successfully reset" });
     } else {
       res.send({ success: false, message: "email is not registered" });
@@ -116,7 +121,7 @@ const PORT = process.env.PORT || 8000;
 // });
 
 app.get("/", (req, res) => {
-  res.status(200).sendFile(join(resolve(), "server/dist/index.html"));
+  res.status(200).sendFile(join(resolve(), "./dist/index.html"));
 });
 app.listen(PORT, () => {
   console.log(`server is chling on port ${PORT}`);

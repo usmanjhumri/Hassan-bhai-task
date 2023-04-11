@@ -9,5 +9,5 @@ const userSchema = new Schema({
   password: String,
   confirmpassword: String,
 });
-
+//updated
 export const User = model("users", userSchema);
