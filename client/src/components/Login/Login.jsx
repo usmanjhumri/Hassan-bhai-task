@@ -15,23 +15,7 @@ import { useForm } from "react-hook-form";
 import { ErrorText } from "../helper/ErrorTestDisplayer";
 import { loginHandle } from "../../RTK/slice/Slice";
 import { useDispatch, useSelector } from "react-redux";
-// function Copyright(props) {
-//   return (
-//     <Typography
-//       variant="body2"
-//       color="text.secondary"
-//       align="center"
-//       {...props}
-//     >
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
+
 
 const Login = () => {
   const { loading, user } = useSelector((store) => store.mainSlice);
