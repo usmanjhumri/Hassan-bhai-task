@@ -81,6 +81,10 @@ const Contact = () => {
                         fontWeight: 500,
                         width: { md: "150px", xs: "50px" },
                         height: "45px",
+                        "&:hover": {
+                          background: "#000000",
+                          color: "#FFFFFF"
+                        }
                       }}
                     >
                       send
