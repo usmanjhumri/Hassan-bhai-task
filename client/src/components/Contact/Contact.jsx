@@ -28,6 +28,7 @@ const Contact = () => {
                   fontFamily: "Poppins",
                   color: "#FFFFFF",
                   textAlign: { xs: "center", md: "auto" },
+                  letterSpacing: "0.03em"
                 }}
               >
                 JOIN SHOPPING COMMUNITY TO
@@ -38,6 +39,8 @@ const Contact = () => {
                   fontSize: { xs: "15px", md: "50px" },
                   fontFamily: "Poppins",
                   color: "#FFFFFF",
+                  letterSpacing: "0.03em"
+
                 }}
               >
                 GET MONTHLY PROMO
@@ -64,6 +67,8 @@ const Contact = () => {
                   width: { sm: "150px", md: "380px" },
                   "& fieldset": { border: "none" },
                   marginTop: "1rem",
+                  letterSpacing: "0.03em",
+
                   input: {
                     color: "#000000",
                   },
@@ -81,6 +86,8 @@ const Contact = () => {
                         fontWeight: 500,
                         width: { md: "150px", xs: "50px" },
                         height: "45px",
+                        letterSpacing: "0.04em",
+
                         "&:hover": {
                           background: "#000000",
                           color: "#FFFFFF"

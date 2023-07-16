@@ -25,6 +25,7 @@ const Youngs = () => {
                 fontFamily: "Poppins",
                 textAlign: "center",
                 display: "flex",
+                letterSpacing: "0.01em"
               }}
             >
               Young’s Favourite
