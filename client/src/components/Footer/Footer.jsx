@@ -23,7 +23,7 @@ const Footer = () => {
                   fontSize: "40px",
                   fontFamily: "Poppins",
                   color: "#FFFFFF",
-                  letterSpacing: " 0.03em",
+                  letterSpacing: " 0.04em",
                 }}
               >
                 FASHION
@@ -34,6 +34,7 @@ const Footer = () => {
                   fontWeight: 400,
                   fontSize: { md: "24px", xs: "18px" },
                   color: "#8E8E8E",
+                  letterSpacing: "0.03em"
                 }}
               >
                 Complete your style with awesome <br /> clothes from us.
