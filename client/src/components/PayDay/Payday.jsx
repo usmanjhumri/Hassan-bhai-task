@@ -35,6 +35,7 @@ const Payday = () => {
                     fontFamily: "Poppins",
                     transform: "rotate(2deg)",
                     color: "#000000",
+                    letterSpacing: "0.02em"
                   }}
                 >
                   PAYDAY
@@ -70,6 +71,8 @@ const Payday = () => {
                   color: "#000000",
                   fontWeight: 700,
                   fontSize: "30px",
+                  letterSpacing: "0.02em"
+
                 }}
               >
                 1 June - 10 June 2021
@@ -80,6 +83,8 @@ const Payday = () => {
                   fontFamily: "Poppins",
                   color: "#000000",
                   fontSize: "30px",
+                  letterSpacing: "0.02em"
+
                 }}
               >
                 *Terms & Conditions apply

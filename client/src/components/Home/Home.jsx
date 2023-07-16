@@ -86,6 +86,7 @@ const Home = () => {
                     fontWeight: 400,
                     fotnSize: "32px",
                     fontFamily: "Poppins",
+                    letterSpacing: "0.04em",
                   }}
                 >
                   Live for Influential and Innovative fashion!
